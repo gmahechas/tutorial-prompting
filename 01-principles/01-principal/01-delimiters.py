@@ -1,4 +1,4 @@
-from OpenAI import OpenAI
+from open_ai import MyOpenAI
 
 text = f"""
 You should express what you want a model to do by \
@@ -19,6 +19,9 @@ into a single sentence.
 """
 
 print(prompt)
-openai = OpenAI()
-response = openai.get_completion(prompt)
+openai = MyOpenAI()
+# for response in openai.completion(prompt):
+#     print(response, end="")
+
+response = openai.completion(prompt)
 print(response)
