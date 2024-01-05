@@ -1,0 +1,4 @@
+steps to
+ describe a product THEN
+ make a table with the specifications THEN
+ the output should be in JSON

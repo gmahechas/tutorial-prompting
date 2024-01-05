@@ -1,6 +1,7 @@
-from OpenAI import OpenAI
+import asyncio
+from open_ai import MyOpenAI
 
-prod_review = """
+review_1 = """
 Got this panda plush toy for my daughter's birthday, \
 who loves it and takes it everywhere. It's soft and \
 super cute, and its face has a friendly look. It's \
@@ -10,8 +11,6 @@ same price. It arrived a day earlier than expected, \
 so I got to play with it myself before I gave it \
 to her.
 """
-
-review_1 = prod_review
 
 # review for a standing lamp
 review_2 = """
@@ -60,16 +59,16 @@ So it looks okay, but if you look at the base, the part \
 where the blade locks into place doesn’t look as good \
 as in previous editions from a few years ago, but I \
 plan to be very gentle with it (example, I crush \
-very hard items like beans, ice, rice, etc. in the \ 
+very hard items like beans, ice, rice, etc. in the \
 blender first then pulverize them in the serving size \
 I want in the blender then switch to the whipping \
 blade for a finer flour, and use the cross cutting blade \
 first when making smoothies, then use the flat blade \
 if I need them finer/less pulpy). Special tip when making \
 smoothies, finely cut and freeze the fruits and \
-vegetables (if using spinach-lightly stew soften the \ 
+vegetables (if using spinach-lightly stew soften the \
 spinach then freeze until ready for use-and if making \
-sorbet, use a small to medium sized food processor) \ 
+sorbet, use a small to medium sized food processor) \
 that you plan to use that way you can avoid adding so \
 much ice if at all-when making your smoothie. \
 After about a year, the motor was making a funny noise. \
@@ -83,19 +82,16 @@ two days.
 
 reviews = [review_1, review_2, review_3, review_4]
 
-openai = OpenAI()
+openai = MyOpenAI()
 
 for i in range(len(reviews)):
     prompt = f"""
-    Your task is to generate a short summary of a product \ 
-    review from an ecommerce site. 
+    Your task is to generate a short summary of a product review from an ecommerce site. 
 
-    Summarize the review below, delimited by triple \
-    backticks in at most 20 words. 
+    Summarize the review below, delimited by triple backticks in at most 20 words. 
 
     Review: ```{reviews[i]}```
     """
 
-    print(prompt)
-    response = openai.get_completion(prompt)
-    print(i, response, "\n")
+    print(i, prompt, "\n")
+    asyncio.run(openai.completion_async(prompt))

@@ -1,5 +1,12 @@
 from open_ai import MyOpenAI
 
+# triple quotes: """
+# triple backticks: ```
+# triple dashes: ---
+# angle brackets: <>
+# XML tags: <tag>
+
+
 text = f"""
 You should express what you want a model to do by \
 providing instructions that are as clear and \
@@ -22,6 +29,4 @@ print(prompt)
 openai = MyOpenAI()
 # for response in openai.completion(prompt):
 #     print(response, end="")
-
-response = openai.completion(prompt)
-print(response)
+openai.completion(prompt)

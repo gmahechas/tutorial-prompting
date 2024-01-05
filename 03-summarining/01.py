@@ -1,4 +1,4 @@
-from OpenAI import OpenAI
+from open_ai import MyOpenAI
 
 prod_review = """
 Got this panda plush toy for my daughter's birthday, \
@@ -51,18 +51,17 @@ to her.
 
 # Try "extract" instead of "summarize"
 prompt = f"""
-Your task is to extract relevant information from \ 
+Your task is to extract relevant information from \
 a product review from an ecommerce site to give \
-feedback to the Shipping department. 
+feedback to the Shipping department.
 
 From the review below, delimited by triple quotes \
-extract the information relevant to shipping and \ 
-delivery. Limit to 30 words. 
+extract the information relevant to shipping and \
+delivery. Limit to 30 words.
 
 Review: ```{prod_review}```
 """
 
 print(prompt)
-openai = OpenAI()
-response = openai.get_completion(prompt)
-print(response)
+openai = MyOpenAI()
+openai.completion(prompt)

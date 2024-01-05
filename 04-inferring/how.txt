@@ -1,0 +1,3 @@
+inferring things about some text, sentiment, product, extract thing,
+
+zero shot

@@ -1,0 +1,2 @@
+expand a text into a email
+respond an email based on a sentiment

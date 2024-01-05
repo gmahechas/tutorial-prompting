@@ -1,0 +1,6 @@
+translate
+covert informal text in formal text
+json to html
+grammar checking
+fix reviews
+change tone of the text
